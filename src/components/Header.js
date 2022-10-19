@@ -55,7 +55,7 @@ const Header = () => {
             />
 
             {dropdown && (
-              <ul className="absolute top-[42px] left-0 right-0 max-h-[200px] list-none bg-white shadow-md overflow-y-scroll ">
+              <ul className="absolute top-[42px] left-0 right-0 z-10 max-h-[200px] list-none bg-white shadow-md overflow-y-scroll ">
                 {data?.map((item) => (
                   <Link to={`/pizza/${item.id}`} key={item.id}>
                     <li
@@ -71,18 +71,18 @@ const Header = () => {
             )}
           </div>
           <div className={'flex gap-2'}>
-          <Link to={'/cart'}><ShoppingCartOutlinedIcon fontSize="large" />
-            {items.length>0&&(
-              <><span>{items.length}</span>|
-              <span>${totalPrice}</span></>
-              
-            )}</Link>
-            
+            <Link to={'/cart'}>
+              <ShoppingCartOutlinedIcon fontSize="large" />
+              {items.length > 0 && (
+                <>
+                  <span>{items.length}</span>|<span>${totalPrice}</span>
+                </>
+              )}
+            </Link>
+
             <Link to={'/favourites'}>
               <FavoriteBorderOutlinedIcon fontSize="large" />
-              {favouriteItems.length > 0 && (
-                <span className={''}>{favouriteItems.length}</span>
-              )}
+              {favouriteItems.length > 0 && <span className={''}>{favouriteItems.length}</span>}
             </Link>
           </div>
         </div>
